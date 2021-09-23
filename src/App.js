@@ -29,7 +29,7 @@ function App() {
             <Route path="/messages" component={Messages} />
             <Route path="/support" component={Support} />
             <Route path="/post-page" component={post} />
-            <p>Ssidkdksa {currentTime}</p>
+            
           </Switch>
           <Footer />
 
