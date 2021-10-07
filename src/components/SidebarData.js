@@ -8,34 +8,46 @@ export const SidebarData = [{
     path: '/',
     icon: <AiIcons.AiFillHome />,
     cName: 'nav-text'
-}, {
-    title: 'Reports',
-    path: '/reports',
-    icon: <IoIcons.IoIosAnalytics />,
-    cName: 'nav-text'
-}, {
-    title: 'Products',
+ }, 
+// {
+//     title: 'Reports',
+//     path: '/reports',
+//     icon: <IoIcons.IoIosAnalytics />,
+//     cName: 'nav-text'
+// }, 
+{
+    title: 'Get-Help',
     path: '/products',
     icon: <FaIcons.FaCartPlus />,
     cName: 'nav-text'
-}, {
-    title: 'Team',
-    path: '/team',
-    icon: <IoIcons.IoMdPeople/>,
-    cName: 'nav-text'
-}, {
-    title: 'Messages',
+}, 
+// {
+//     title: 'Submit-Helpline',
+//     path: '/team',
+//     icon: <IoIcons.IoMdPeople/>,
+//     cName: 'nav-text'
+// }, 
+{
+    title: 'Feedback',
     path: '/messages',
     icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
 }, {
-    title: 'Support',
+    title: 'FAQ',
     path: '/support',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
-},{
-    title: 'post',
+},
+{
+    title: 'Submit-Helpline',
+    path: '/Main_Home',
+    icon: <IoIcons.IoMdHelpCircle />,
+    cName: 'nav-text'
+},
+{
+    title: 'Post Search Page',
     path: '/post-page',
     icon: <IoIcons.IoMdHelpCircle />,
     cName: 'nav-text'
-}]
+}
+]

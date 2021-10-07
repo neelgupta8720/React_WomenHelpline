@@ -7,7 +7,7 @@ $bg-color: #060b26;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: $bg-color;
+  background-color: #ffffff;
 }
 
 .menu-bars {
@@ -26,7 +26,7 @@ $bg-color: #060b26;
   left: -100%;
   background-color: $bg-color;
   transition: 850ms;
-  z-index: 2000;
+  z-index:2000;
 
   &.active {
     left: 0;
@@ -74,4 +74,101 @@ $bg-color: #060b26;
       }
     }
   }
+}
+
+.css-1ozmk1d{
+
+  background: #00faee;
+}
+
+.But{
+width: 1000px;
+
+
+}
+.But img{
+  height: 30px;
+  width: 30px;
+  margin: 0;
+}
+
+.Search input[type="text"] :focus{
+  outline: none;
+  border: 10px solid;
+}
+
+.language {
+  height: 20px;
+  width: 20px;
+}
+
+.filter-image{
+  height: 15px;
+  width: 15px;
+}
+
+
+.Filterss{
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    padding: 10px;
+    background: teal;
+}
+
+
+
+.filter{
+  justify-content: right;
+}
+
+
+.Issue Button{
+
+  background-color: white;
+  color:teal;
+  height: 40px;
+  width:165px;
+  border-bottom: 2px solid;
+}
+
+.Issue Button:focus{
+
+  border-bottom: 2.5px solid;
+}
+
+.icon{
+
+  margin-left: 100px;
+
+}
+
+.wrapper {
+  position: absolute;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid #dfe1e5;
+  border-radius: 22px;
+  background-color: #cd1919;
+  color: #212121;
+  font-size: 16px;
+  font-family: Arial;
+  z-index: 0;
+}
+
+
+
+.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"], .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  padding-right: 39px;
+  border-radius: 38px;
+  background-color:rgb(168, 242, 255)
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #0f1111b9;
 }

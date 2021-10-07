@@ -1,84 +1,72 @@
-import React, { useState } from 'react'
-import MultiSelect from  'react-multiple-select-dropdown-lite'
-import  'react-multiple-select-dropdown-lite/dist/index.css';
-import { Button, Text, Heading, Box, Input, FormControl, FormLabel, Select, ButtonGroup } from "@chakra-ui/react"
+import React, { useState } from "react";
+import Faq from "./Faq";
 
 function Support() {
-    const [value, setvalue] = useState('')
+  const [faqs, setfaqs] = useState([
+    {
+      question: "What is ReactJS?",
+      answer:
+        "React is an open-source JavaScript library for building user interfaces. It is maintained by Facebook and a community of individual developers and companies. React can be used as a base in the development of single-page or mobile applications.",
+      open: true,
+    },
+    {
+      question: "What is Redux ?",
+      answer:
+        "Redux is an open-source JavaScript library for managing application state. It is most commonly used with libraries such as React or Angular for building user interfaces. Similar to Facebook's Flux architecture, it was created by Dan Abramov and Andrew Clark.",
+      open: false,
+    },
+    {
+      question: "What is Hooks?",
+      answer:
+        "Hooks are functions that let you “hook into” React state and lifecycle features from function components. Hooks don't work inside classes — they let you use React without classes. ... You can also create your own Hooks to reuse stateful behavior between different components.",
+      open: false,
+    },
+    {
+      question: "What is Components?",
+      answer:
+        "Components are the building blocks of any React app and a typical React app will have many of these. Simply put, a component is a JavaScript class or function that optionally accepts inputs i.e. properties(props) and returns a React element that describes how a section of the UI (User Interface) should appear.",
+      open: false,
+    },
+    {
+      question: "What is Props?",
+      answer:
+        "Props is a special keyword in React, which stands for properties and is being used for passing data from one component to another. Furthermore, props data is read-only, which means that data coming from the parent should not be changed by child components.",
+      open: false,
+    },
+    {
+      question: "What is State?",
+      answer:
+        "React components has a built-in state object. The state object is where you store property values that belongs to the component. When the state object changes, the component re-renders.",
+      open: false,
+    },
+  ]);
 
-  const  handleOnchange  =  val  => {
-    setvalue(val)
-  }
+  const toggleFAQ = (index) => {
+    setfaqs(
+      faqs.map((faq, i) => {
+        if (i === index) {
+          faq.open = !faq.open;
+        } else {
+          faq.open = false;
+        }
 
-  const  options  = [
-    { label:  'Option 1', value:  'option_1'  },
-    { label:  'Option 2', value:  'option_2'  },
-    { label:  'Option 3', value:  'option_3'  },
-    { label:  'Option 4', value:  'option_4'  },
-  ]
-    return (
-        <><div className="app">
-            <div className="preview-values">
-                <h4>Issues</h4>
-                {value}
-            </div>
+        return faq;
+      })
+    );
+  };
 
-            <MultiSelect
-                onChange={handleOnchange}
-                options={options} />
-        </div><div className="submit">
-                <Box maxW="55rem">
-                    <Heading style={{ textAlign: "center" }} fontSize="xl">You seem to be lost! Need Some help?</Heading>
-
-
-                    <div>
-                        <FormControl id="Name_org" isRequired>
-                            <FormLabel>Name of the organization</FormLabel>
-                            <Input placeholder="Name of the organization" />
-                        </FormControl>
-
-
-                    </div>
-                    <div>
-                        <FormControl id="Add" isRequired>
-                            <FormLabel>Address of the organization</FormLabel>
-                            <Input placeholder="Address of the organization" />
-                        </FormControl>
-                    </div>
-
-
-                    <FormControl id="country">
-                        <FormLabel>Country</FormLabel>
-                        <Select placeholder="Select country">
-                            <option>United Arab Emirates</option>
-                            <option>Nigeria</option>
-                        </Select>
-                    </FormControl>
-
-                    <div>
-                        <FormControl id="Add" isRequired>
-                            <FormLabel>Address of the organization</FormLabel>
-                            <Input placeholder="Address of the organization" />
-                        </FormControl>
-                    </div>
-                    <div className="app">
-            <div className="preview-values">
-                <h4>Values</h4>
-                {value}
-            </div>
-
-            <MultiSelect
-                onChange={handleOnchange}
-                options={options} />
-        </div>
-                  
-                    <Button style={{ marginLeft: "140px",paddingTop : "30 px",paddingBottom : "30 px" }} size="lg" colorScheme="teal" mt="24px">
-                        Submit
-                    </Button>
-                </Box>
-
-            </div></>
-    )
+  return (
+    <div className="App">
+      <header>
+        <h1>Frequently Asked Questions</h1>
+      </header>
+      <div className="faqs">
+        {faqs.map((faq, i) => (
+          <Faq faq={faq} index={i} toggleFAQ={toggleFAQ} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default Support;

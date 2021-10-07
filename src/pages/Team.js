@@ -1,91 +1,123 @@
-import React from 'react';
-  
+import { Heading } from "@chakra-ui/react";
+import ReCAPTCHA from "react-google-recaptcha";
+import React  from "react";
+import Recaptcha from "react-recaptcha";
+import {Component,NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  Button,
+  Text,
+  Box,
+  Input,
+  FormControl,
+  FormLabel,
+  Select,
+  ButtonGroup,
 
-function Teams() {
+} from "@chakra-ui/react";
+
+// class Team extends Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.handleSubscribe = this.handleSubscribe.bind(this);
+//     this.recaptchaLoaded = this.recaptchaLoaded.bind(this);
+//     this.verifyCallback = this.verifyCallback.bind(this);
+
+//     this.state = {
+//       isVerified: false,
+//     };
+//   }
+
+//   recaptchaLoaded() {
+//     console.log("capcha successfully loaded");
+//   }
+
+//   handleSubscribe() {
+//     if (this.state.isVerified) {
+//       alert("You have successfully subscribed!");
+//     } else {
+//       alert("Please verify that you are a human!");
+//     }
+//   }
+
+//   verifyCallback(response) {
+//     if (response) {
+//       this.setState({
+//         isVerified: true,
+//       });
+//     }
+//   }
+
+//   render() 
+      function Team()  {
     return (
-        <div className="home">
-            <Box maxW="80rem">
-            <Heading style={{textAlign :"center"}} fontSize="xxl" mb={30}>You seem to be lost! Need Some help?</Heading>
-            <Text fontSize="xl">
-                You can let us know what you are looking for by just selecting what you came here looking for from the options given below!!!
-            </Text>
-            <div class="Sopts" >
-                <Button  size="lg" colorScheme="teal" mt="24px">
-                    Dowry
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Sexual Harrasment
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Stalking
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Child Marriage
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Divorce
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Rape
-                </Button>
+      <>
+        <div>
+          <Box maxW="20rem">
+            <Heading style={{ textAlign: "center" }} fontSize="xl" mb={30}>
+              Submit A Helpline Number
+            </Heading>
+            <div>
+              <FormControl id="Name_org" isRequired>
+                <FormLabel>Name of the organization</FormLabel>
+                <Input placeholder="Name of the organization" />
+              </FormControl>
             </div>
-            <div class="Sopts1" >
-                <Button style={{marginLeft:"110px"}}size="lg" colorScheme="teal" mt="24px">
-                    Domestic Violence
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Cyber Bullying
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Sexual Abuse
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Stalking
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Rape
-                </Button>
+            <div>
+              <FormControl id="Add" isRequired>
+                <FormLabel>Address of the organization</FormLabel>
+                <Input placeholder="Address of the organization" />
+              </FormControl>
             </div>
-            <div class="Sopts2" >
-                <Button style={{marginLeft:"210px"}}size="lg" colorScheme="teal" mt="24px">
-                    Domestic Violence
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Cyber Bullying
-                </Button>
-                <Button size="lg" colorScheme="teal" mt="24px">
-                    Sexual Abuse
-                </Button>
-                
+            <div>
+              <NumberInput defaultValue={15} min={10} max={20}>
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
             </div>
-            <div style={{marginTop:"30px"}} class="Sput">
-            <Text style={{marginLeft:"120px"}} fontSize="xl">
-                If what you were looking for is not included in the above options, You can let us know by typing it!
-            </Text>
-            <Input style={{color:"black"}} variant="flushed" placeholder="Enter The Problem You Are Facing Here" />
+
+            <div>
+              <FormControl id="Add" isRequired>
+                <FormLabel>Location</FormLabel>
+                <Input placeholder="Location" />
+              </FormControl>
             </div>
-            <Heading style={{ textAlign :"center", marginTop:"100px"}} fontSize="xxl" mb={30}>Tell us a little about Yourself!</Heading>
-            <FormControl style={{paddingBottom:"20px"}} id="first-name" isRequired>
-            <FormLabel>Full Name</FormLabel>
-            <Input  placeholder="Full Name" />
-            </FormControl>
-            <FormControl style={{paddingBottom:"20px"}} id="first-name" isRequired>
-            <FormLabel>Your Phone Number</FormLabel>
-            <Input type="tel" placeholder="+91 ..." />
-            </FormControl>
-            <FormControl style={{paddingBottom:"20px"}} id="first-name" isRequired>
-            <FormLabel>Email Id</FormLabel>
-            <Input placeholder="Email" />
-            </FormControl>
-            <FormControl style={{paddingBottom:"20px"}} id="first-name">
-            <FormLabel size="xl">Anything Else You Want To Tell Us?</FormLabel>
-            <Input style={{height:"100px"}} placeholder="Your Message" />
-            </FormControl>
-            <Button style={{marginLeft:"0px"}}size="lg" colorScheme="teal" mt="24px">
-                    Submit
-            </Button>
-            </Box>
+            <div>
+              <ButtonGroup variant="outline" spacing="6">
+                <Button colorScheme="blue">Save</Button>
+                <Button>Cancel</Button>
+              </ButtonGroup>{" "}
+            </div>
+          </Box>
+        
+        <div className="App">
+        
+            <Recaptcha
+              sitekey="6LfCqn8cAAAAAMtY5AFClOkoiqVal5pSBtuZT9ar"
+              render="explicit"
+            //   onloadCallback={this.recaptchaLoaded}
+            //   verifyCallback={this.verifyCallback}
+            //   onClick={this.handleSubscribe}
+            />
+            
+            <div className="convert" >
+              Submit
+            </div>
+          </div>
         </div>
-    )
-    }
-export default Teams;
+      </>
+    );
+  }
+
+
+export default Team;
+
+
+
+

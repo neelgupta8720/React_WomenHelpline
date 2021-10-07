@@ -1,54 +1,99 @@
-import React from 'react';
-import { Button, Text,Heading, Box, Input,FormControl,FormLabel,Select,ButtonGroup } from "@chakra-ui/react"
+import { fontSize } from "@mui/system";
+import { useState } from "react";
+import { FaStar } from "react-icons/fa";
+import { Button,Text,Heading } from "@chakra-ui/react"
+const colors = {
+  orange: "#FFBA5A",
+  grey: "#a9a9a9"
 
-function Messages() {
-    return (
-        <div className="home">
-            <Box maxW="55rem">
-            <Heading style={{textAlign :"center"}} fontSize="xl" >You seem to be lost! Need Some help?</Heading>
-            
-            
-           <div>
-                <FormControl id="Name_org" isRequired>
-                    <FormLabel>Name of the organization</FormLabel>
-                    <Input placeholder="Name of the organization" />
-                </FormControl>
+};
 
-    
-            </div>
-            <div>
-                <FormControl id="Add" isRequired>
-                    <FormLabel>Address of the organization</FormLabel>
-                    <Input placeholder="Address of the organization" />
-                </FormControl>
-            </div>
-    
-    
-            <FormControl id="country">
-                <FormLabel>Country</FormLabel>
-                <Select placeholder="Select country">
-                    <option>United Arab Emirates</option>
-                    <option>Nigeria</option>
-                </Select>
-            </FormControl>
-    
-            <div>
-                <FormControl id="Add" isRequired>
-                    <FormLabel>Address of the organization</FormLabel>
-                    <Input placeholder="Address of the organization" />
-                </FormControl>
-            </div>
-            <div>
-                <ButtonGroup variant="outline" spacing="6">
-                    <Button colorScheme="blue">Save</Button>
-                    <Button>Cancel</Button>
-                </ButtonGroup> </div>
-            <Button style={{marginLeft:"0px"}}size="lg" colorScheme="teal" mt="24px">
-                    Submit
+function App() {
+  const [currentValue, setCurrentValue] = useState(0);
+  const [hoverValue, setHoverValue] = useState(undefined);
+  const stars = Array(5).fill(0)
+
+  const handleClick = value => {
+    setCurrentValue(value)
+  }
+
+  const handleMouseOver = newHoverValue => {
+    setHoverValue(newHoverValue)
+  };
+
+  const handleMouseLeave = () => {
+    setHoverValue(undefined)
+  }
+
+
+  return (
+    <div style={styles.container}>
+      <Heading as="h1" size="lg">
+                Helpline Number : xxxxxxxxxx 
+            </Heading>
+      
+      <h2 style={{fontSize:"50px"}}> Feedback </h2>
+      <div style={styles.stars}>
+        {stars.map((_, index) => {
+          return (
+            <FaStar
+              key={index}
+              size={28}
+              onClick={() => handleClick(index + 1)}
+              onMouseOver={() => handleMouseOver(index + 1)}
+              onMouseLeave={handleMouseLeave}
+              color={(hoverValue || currentValue) > index ? colors.orange : colors.grey}
+              style={{
+                marginRight: 10,
+                cursor: "pointer"
+              }}
+            />
+          )
+        })}
+      </div>
+      <textarea
+        placeholder="Submit Your Feedback...."
+        style={styles.textarea}
+      />
+    <Button  bg="white" variant="outline" mb={5} _hover={{ bg:"teal" , color:"white"}}>
+                Feedback
             </Button>
-            </Box>
-        </div>
-    )
-}
 
-export default Messages;
+     
+
+    </div>
+  );
+};
+
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    
+  },
+  stars: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  textarea: {
+    border: "0.1px solid #663300",
+    borderRadius: 20,
+    padding: 25,
+    margin: "20px 0",
+    minHeight: 300,
+    width: 320,
+    outline:"none"
+    
+  },
+
+
+};
+
+
+
+
+export default App;
+
+
